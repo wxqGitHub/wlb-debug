@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 id='test'>websocket</h1>
+        <script type="text/javascript">
+            var initialized;
+            var pubsub = {};
+            (function(q) {
+
+                var topics = {},
+                    subUid = -1;
+                q.publish = function(topic, args) {
+
+                    if (!topics[topic]) {
+                        return false;
+                    }
+
+                    setTimeout(function() {
+                        var subscribers = topics[topic],
+                            len = subscribers
+                                ? subscribers.length
+                                : 0;
+
+                        while (len--) {
+                            subscribers[len].func(topic, args);
+                        }
+                    }, 0);
+
+                    return true;
+
+                };
+                q.subscribe = function(topic, func) {
+
+                    if (!topics[topic]) {
+                        topics[topic] = [];
+                    }
+
+                    var token = (++subUid).toString();
+                    topics[topic].push({token: token, func: func});
+                    return token;
+                };
+            }(pubsub));
+
+            window.onload = function() {
+                var ws = new WebSocket('ws://localhost:3000');
+                ws.onopen = function() {
+                    pubsub.subscribe('log', function(topics, data) {
+                        ws.send(JSON.stringify({type: 'error', message: data.message}));
+                    });
+                }
+                ws.onmessage = function(ev) {
+                    var obj = JSON.parse(ev.data);
+                    alert(obj.message)
+                }
+                document.onclick = function(ev) {
+                    pubsub.publish('log', {type:'error', message: 'fuasds'});
+                }
+            }
+        </script>
+    </body>
+</html>
