@@ -1,7 +1,8 @@
 
 
 ##wlb-debug
-
+该包为app webview调试工具，支持前端页面与原生app交互调试（调用原生接口）
+暂不支持前端页面业务逻辑与原生app的调试
 ###Installation
 ```sh
 npm install -g wlb-debug
