@@ -17,7 +17,7 @@ cd static/
 
 #default port 3000
 wlb-debug
-
+![](./server.png)
 
 #打包本地ip app包
 #将项目中的webview.js 改为webview.bug.js
