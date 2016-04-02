@@ -13,16 +13,17 @@ npm link wlb-debug
 ```
 ### build
 ```sh
-cd static/
+1. cd static/
 
 #default port 3000
-wlb-debug
+2. wlb-debug
 ```
 ![](./server.png)
 ```sh
-#打包本地ip app包
-#将项目中的webview.js 改为webview.bug.js
-#选择是否打开debug，如下
+3 打包本地ip app包
+4 将项目中的webview.js 改为webview.bug.js
+5 选择是否打开debug，如下
+```sh
 wlb.ready({
     debug:{
         switch: true  #debug开关
