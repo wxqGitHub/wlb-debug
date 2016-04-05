@@ -32,3 +32,5 @@ wlb.ready({
 })
 #在app中访问需要debug页面，进行操作，在终端即可看到输出信息
 ```
+debug信息如下:<br>
+![](./server2.png)
