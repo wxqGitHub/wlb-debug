@@ -1,7 +1,7 @@
 
 
 ##wlb-debug
-该包为app webview调试工具，支持前端页面与原生app交互调试（调用原生接口）
+该包为app webview调试工具，支持前端页面与原生app交互调试（调用原生接口）<br>  
 暂不支持前端页面业务逻辑与原生app的调试
 ###Installation
 ```sh
@@ -20,9 +20,9 @@ npm link wlb-debug
 ```
 ![](./server.png)
 
-3 打包本地ip app包
-4 将项目中的webview.js 改为webview.bug.js
-5 选择是否打开debug，如下
+3 打包本地ip app包<br>
+4 将项目中的webview.js 改为webview.bug.js<br>
+5 选择是否打开debug，如下<br>
 ```sh
 wlb.ready({
     debug:{
